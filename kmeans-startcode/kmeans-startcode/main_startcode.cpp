@@ -131,6 +131,54 @@ FileCSVWriter openDebugFile(const std::string &n)
 	return f;
 }
 
+double squaredDistance(const double *a, const double *b, size_t dim) {
+	double sum = 0;
+	for (size_t d = 0; d < dim; d++)
+	{
+		double diff = a[d] - b[d];
+		sum += diff * diff;
+	}
+	return sum;
+}
+
+int getClosestCluster(const double *point, const std::vector<double> &centroids, int numClusters, size_t dim, double &bestDist) {
+	int best = 0;
+	bestDist = squaredDistance(point, &centroids[0], dim);
+ 
+	for (int c = 1; c < numClusters; c++)
+	{
+		double dist = squaredDistance(point, &centroids[c * dim], dim);
+		if (dist < bestDist)
+		{
+			bestDist = dist;
+			best = c;
+		}
+	}
+	return best;
+}
+
+void updateCentroids(const std::vector<double> &allData, const std::vector<int> &clusters, size_t numRows, size_t dim, int numClusters, std::vector<double> &centroids) {
+	std::vector<double> sums(numClusters * dim, 0.0);
+	std::vector<size_t> counts(numClusters, 0);
+ 
+	for (size_t p = 0; p < numRows; p++)
+	{
+		int c = clusters[p];
+		counts[c]++;
+		for (size_t d = 0; d < dim; d++)
+			sums[c * dim + d] += allData[p * dim + d];
+	}
+ 
+	for (int c = 0; c < numClusters; c++)
+	{
+		if (counts[c] == 0)
+			continue;
+		for (size_t d = 0; d < dim; d++)
+			centroids[c * dim + d] = sums[c * dim + d] / counts[c];
+	}
+}
+
+
 int kmeans(Rng &rng, const std::string &inputFile, const std::string &outputFileName,
            int numClusters, int repetitions, int numBlocks, int numThreads,
            const std::string &centroidDebugFileName, const std::string &clusterDebugFileName)
@@ -147,13 +195,19 @@ int kmeans(Rng &rng, const std::string &inputFile, const std::string &outputFile
 		return -1;
 	}
 
-	// TODO: load dataset
+	std::vector<double> allData;
+
+	std::ifstream input(inputFile);
+	size_t numRows, numCols;
+
+	readData(input, allData, numRows, numCols);
 
 	// This is a basic timer from std::chrono ; feel free to use the appropriate timer for
 	// each of the technologies, e.g. OpenMP has omp_get_wtime()
 	Timer timer;
 
 	double bestDistSquaredSum = std::numeric_limits<double>::max(); // can only get better
+	std::vector<int> bestClusters(numClusters);
 	std::vector<size_t> stepsPerRepetition(repetitions); // to save the number of steps each rep needed
 
     // Do the k-means routine a number of times, each time starting from
@@ -162,9 +216,54 @@ int kmeans(Rng &rng, const std::string &inputFile, const std::string &outputFile
 	for (int r = 0 ; r < repetitions ; r++)
 	{
 		size_t numSteps = 0;
-        // TODO: perform an actual k-means run, starting from random centroids
-        //       (see rng.h)
-		std::cerr << "TODO: implement this" << std::endl;
+        
+		std::vector<size_t> picked(numClusters);
+		rng.pickRandomIndices(numClusters, picked);
+ 
+		std::vector<double> centroids(numClusters * numCols);
+		for (int c = 0; c < numClusters; c++)
+			for (size_t d = 0; d < numCols; d++)
+				centroids[c * numCols + d] = allData[picked[c] * numCols + d];
+		
+		if (centroidDebugFile.is_open())
+			centroidDebugFile.write(centroids);
+ 
+		std::vector<int> clusters(numRows, -1);
+		double distSquaredSum = 0;
+
+		bool changed = true;
+		while (changed) {
+			changed = false;
+			distSquaredSum = 0;
+ 
+			for (size_t p = 0; p < numRows; p++)
+			{
+				double dist;
+				int newCluster = getClosestCluster(&allData[p * numCols], centroids, numClusters, numCols, dist);
+				distSquaredSum += dist;
+ 
+				if (newCluster != clusters[p])
+				{
+					clusters[p] = newCluster;
+					changed = true;
+				}
+			}
+			numSteps++;
+ 
+			if (changed) {
+				updateCentroids(allData, clusters, numRows, numCols, numClusters, centroids);
+
+				if (clustersDebugFile.is_open())
+					clustersDebugFile.write(clusters);
+				if (centroidDebugFile.is_open())
+					centroidDebugFile.write(centroids);
+			}
+		}
+ 
+		if (distSquaredSum < bestDistSquaredSum) {
+			bestDistSquaredSum = distSquaredSum;
+			bestClusters = clusters;
+		}
 
 		stepsPerRepetition[r] = numSteps;
 
@@ -187,6 +286,7 @@ int kmeans(Rng &rng, const std::string &inputFile, const std::string &outputFile
 	csvOutputFile.write(stepsPerRepetition, "# Steps: ");
 	// Write best clusters to csvOutputFile, something like
 	// csvOutputFile.write( best cluster indices )
+	csvOutputFile.write(bestClusters);
 	return 0;
 }
 
