@@ -251,12 +251,13 @@ int kmeans(Rng &rng, const std::string &inputFile, const std::string &outputFile
 				}
 			}
 			numSteps++;
+
+			if (clustersDebugFile.is_open())
+					clustersDebugFile.write(clusters);
  
 			if (changed) {
 				updateCentroids(allData, clusters, numRows, numCols, numClusters, centroids);
 
-				if (clustersDebugFile.is_open())
-					clustersDebugFile.write(clusters);
 				if (centroidDebugFile.is_open())
 					centroidDebugFile.write(centroids, numCols);
 			}
