@@ -213,22 +213,24 @@ int kmeans(Rng &rng, const std::string &inputFile, const std::string &outputFile
     // Do the k-means routine a number of times, each time starting from
     // different random centroids (use Rng::pickRandomIndices), and keep 
     // the best result of these repetitions.
+	std::vector<size_t> picked(numClusters);
+	std::vector<double> centroids(numClusters * numCols);
+	std::vector<int> clusters(numRows);
+
 	for (int r = 0 ; r < repetitions ; r++)
 	{
 		size_t numSteps = 0;
         
-		std::vector<size_t> picked(numClusters);
-		rng.pickRandomIndices(numClusters, picked);
+		rng.pickRandomIndices(numRows, picked);
  
-		std::vector<double> centroids(numClusters * numCols);
 		for (int c = 0; c < numClusters; c++)
 			for (size_t d = 0; d < numCols; d++)
 				centroids[c * numCols + d] = allData[picked[c] * numCols + d];
+		clusters.assign(numRows, -1);
 		
 		if (centroidDebugFile.is_open())
-			centroidDebugFile.write(centroids);
- 
-		std::vector<int> clusters(numRows, -1);
+			centroidDebugFile.write(centroids, numCols);
+
 		double distSquaredSum = 0;
 
 		bool changed = true;
@@ -249,14 +251,15 @@ int kmeans(Rng &rng, const std::string &inputFile, const std::string &outputFile
 				}
 			}
 			numSteps++;
+
+			if (clustersDebugFile.is_open())
+					clustersDebugFile.write(clusters);
  
 			if (changed) {
 				updateCentroids(allData, clusters, numRows, numCols, numClusters, centroids);
 
-				if (clustersDebugFile.is_open())
-					clustersDebugFile.write(clusters);
 				if (centroidDebugFile.is_open())
-					centroidDebugFile.write(centroids);
+					centroidDebugFile.write(centroids, numCols);
 			}
 		}
  
