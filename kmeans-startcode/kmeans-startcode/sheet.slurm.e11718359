@@ -1,0 +1,24 @@
+The following modules were not unloaded:
+  (Use "module --force purge" to unload all):
+
+  1) cluster/mindwell/batch_graniterapids
+# Running ['./kmeans', '--input', '../datasets/100000x5.csv', '--k', '10', '--output', 'cmp_form.csv.1', '--repetitions', '20', '--seed', '1337']
+# Type,blocks,threads,file,seed,clusters,repetitions,bestdistsquared,timeinseconds
+# Running ['/data/leuven/303/vsc30380/kmeans_serial_reference', '--input', '../datasets/100000x5.csv', '--k', '10', '--output', 'cmp_form.csv.2', '--repetitions', '20', '--seed', '1337']
+# Loaded 100000x5 matrix
+# New best on repetition 0: 2.58959e+12 (difference is 1.79769e+308)
+# New best on repetition 10: 2.25117e+12 (difference is 3.38417e+11)
+# New best on repetition 13: 2.25117e+12 (difference is 5830.29)
+# Type,blocks,threads,file,seed,clusters,repetitions,bestdistsquared,timeinseconds
+# Output checks out: ['cmp_form.csv.1', 'cmp_form.csv.2']
+# Done
+# Type,blocks,threads,file,seed,clusters,repetitions,bestdistsquared,timeinseconds
+# Type,blocks,threads,file,seed,clusters,repetitions,bestdistsquared,timeinseconds
+# Type,blocks,threads,file,seed,clusters,repetitions,bestdistsquared,timeinseconds
+# Type,blocks,threads,file,seed,clusters,repetitions,bestdistsquared,timeinseconds
+# Type,blocks,threads,file,seed,clusters,repetitions,bestdistsquared,timeinseconds
+# Type,blocks,threads,file,seed,clusters,repetitions,bestdistsquared,timeinseconds
+# Type,blocks,threads,file,seed,clusters,repetitions,bestdistsquared,timeinseconds
+# Type,blocks,threads,file,seed,clusters,repetitions,bestdistsquared,timeinseconds
+# Type,blocks,threads,file,seed,clusters,repetitions,bestdistsquared,timeinseconds
+# Type,blocks,threads,file,seed,clusters,repetitions,bestdistsquared,timeinseconds

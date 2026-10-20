@@ -24,4 +24,3 @@ for i in $(seq 1 10); do
 done
 
 cmp t_mine.csv t_ref.csv && echo "juiste output"
-

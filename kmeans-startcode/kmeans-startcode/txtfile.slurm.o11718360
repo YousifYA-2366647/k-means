@@ -1,0 +1,44 @@
+------------------------------------------------------------------------------
+m11c10n1
+g++ (GCC) 14.3.0
+RUN 1
+sequential,1,1,../datasets/100000x5.csv,2364763,10,20,2.25117e+12,1.437
+sequential_icc,1,1,../datasets/100000x5.csv,2364763,10,20,2.25117e+12,2.98414
+RUN 2
+sequential,1,1,../datasets/100000x5.csv,2364763,10,20,2.25117e+12,1.44635
+sequential_icc,1,1,../datasets/100000x5.csv,2364763,10,20,2.25117e+12,2.98695
+RUN 3
+sequential,1,1,../datasets/100000x5.csv,2364763,10,20,2.25117e+12,1.4426
+sequential_icc,1,1,../datasets/100000x5.csv,2364763,10,20,2.25117e+12,2.99148
+RUN 4
+sequential,1,1,../datasets/100000x5.csv,2364763,10,20,2.25117e+12,1.44247
+sequential_icc,1,1,../datasets/100000x5.csv,2364763,10,20,2.25117e+12,2.99231
+RUN 5
+sequential,1,1,../datasets/100000x5.csv,2364763,10,20,2.25117e+12,1.44477
+sequential_icc,1,1,../datasets/100000x5.csv,2364763,10,20,2.25117e+12,2.99175
+RUN 6
+sequential,1,1,../datasets/100000x5.csv,2364763,10,20,2.25117e+12,1.43307
+sequential_icc,1,1,../datasets/100000x5.csv,2364763,10,20,2.25117e+12,2.98433
+RUN 7
+sequential,1,1,../datasets/100000x5.csv,2364763,10,20,2.25117e+12,1.44154
+sequential_icc,1,1,../datasets/100000x5.csv,2364763,10,20,2.25117e+12,2.993
+RUN 8
+sequential,1,1,../datasets/100000x5.csv,2364763,10,20,2.25117e+12,1.43962
+sequential_icc,1,1,../datasets/100000x5.csv,2364763,10,20,2.25117e+12,2.99711
+RUN 9
+sequential,1,1,../datasets/100000x5.csv,2364763,10,20,2.25117e+12,1.44379
+sequential_icc,1,1,../datasets/100000x5.csv,2364763,10,20,2.25117e+12,3.00126
+RUN 10
+sequential,1,1,../datasets/100000x5.csv,2364763,10,20,2.25117e+12,1.43959
+sequential_icc,1,1,../datasets/100000x5.csv,2364763,10,20,2.25117e+12,2.99112
+juiste output
+------------------------------------------------------------------------------
+JOBSTAT:ELAPSED_SECONDS=47
+JOBSTAT:SLURM_CLUSTER_NAME=mindwell
+JOBSTAT:SLURM_NODELIST=m11c10n1
+JOBSTAT:SLURM_NTASKS=1
+JOBSTAT:SLURM_GPUS_PER_NODE=
+JOBSTAT:SLURM_JOB_CPUS_PER_NODE=1
+JOBSTAT:SLURM_JOB_NUM_NODES=1
+JOBSTAT:SLURM_JOB_PARTITION=batch_graniterapids
+JOBSTAT:ESTIMATED_CREDITS=2

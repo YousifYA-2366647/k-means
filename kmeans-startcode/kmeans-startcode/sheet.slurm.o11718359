@@ -1,0 +1,25 @@
+------------------------------------------------------------------------------
+m11c10n1
+g++ (GCC) 14.3.0
+sequential,1,1,../datasets/100000x5.csv,1337,10,20,2.25117e+12,2.21411
+sequential_icc,1,1,../datasets/100000x5.csv,1337,10,20,2.25117e+12,4.61061
+sequential,1,1,../datasets/100000x5.csv,1337,10,20,2.25117e+12,2.20775
+sequential,1,1,../datasets/100000x5.csv,1337,10,20,2.25117e+12,2.22131
+sequential,1,1,../datasets/100000x5.csv,1337,10,20,2.25117e+12,2.2079
+sequential,1,1,../datasets/100000x5.csv,1337,10,20,2.25117e+12,2.21436
+sequential,1,1,../datasets/100000x5.csv,1337,10,20,2.25117e+12,2.2086
+sequential,1,1,../datasets/100000x5.csv,1337,10,20,2.25117e+12,2.20518
+sequential,1,1,../datasets/100000x5.csv,1337,10,20,2.25117e+12,2.21219
+sequential,1,1,../datasets/100000x5.csv,1337,10,20,2.25117e+12,2.21239
+sequential,1,1,../datasets/100000x5.csv,1337,10,20,2.25117e+12,2.21235
+sequential,1,1,../datasets/100000x5.csv,1337,10,20,2.25117e+12,2.2043
+------------------------------------------------------------------------------
+JOBSTAT:ELAPSED_SECONDS=31
+JOBSTAT:SLURM_CLUSTER_NAME=mindwell
+JOBSTAT:SLURM_NODELIST=m11c10n1
+JOBSTAT:SLURM_NTASKS=1
+JOBSTAT:SLURM_GPUS_PER_NODE=
+JOBSTAT:SLURM_JOB_CPUS_PER_NODE=1
+JOBSTAT:SLURM_JOB_NUM_NODES=1
+JOBSTAT:SLURM_JOB_PARTITION=batch_graniterapids
+JOBSTAT:ESTIMATED_CREDITS=1
