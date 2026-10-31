@@ -6,6 +6,7 @@
 #include "CSVWriter.hpp"
 #include "rng.h"
 #include "timer.h"
+#include <omp.h>
 
 void usage()
 {
@@ -17,7 +18,7 @@ Usage:
 Arguments:
 
  --input:
- 
+
    Specifies input CSV file, number of rows represents number of points, the
    number of columns is the dimension of each point.
 
@@ -144,7 +145,7 @@ double squaredDistance(const double *a, const double *b, size_t dim) {
 int getClosestCluster(const double *point, const std::vector<double> &centroids, int numClusters, size_t dim, double &bestDist) {
 	int best = 0;
 	bestDist = squaredDistance(point, &centroids[0], dim);
- 
+
 	for (int c = 1; c < numClusters; c++)
 	{
 		double dist = squaredDistance(point, &centroids[c * dim], dim);
@@ -160,15 +161,20 @@ int getClosestCluster(const double *point, const std::vector<double> &centroids,
 void updateCentroids(const std::vector<double> &allData, const std::vector<int> &clusters, size_t numRows, size_t dim, int numClusters, std::vector<double> &centroids) {
 	std::vector<double> sums(numClusters * dim, 0.0);
 	std::vector<size_t> counts(numClusters, 0);
- 
+
+	double* sumPointer = sums.data();
+	size_t* countPointer = counts.data();
+
+	#pragma omp parallel for schedule(static) reduction(+:sumPointer[:numClusters*dim], countPointer[:numClusters])
 	for (size_t p = 0; p < numRows; p++)
 	{
 		int c = clusters[p];
-		counts[c]++;
+		countPointer[c]++;
 		for (size_t d = 0; d < dim; d++)
-			sums[c * dim + d] += allData[p * dim + d];
+			sumPointer[c * dim + d] += allData[p * dim + d];
 	}
- 
+
+	#pragma omp parallel for schedule(static)
 	for (int c = 0; c < numClusters; c++)
 	{
 		if (counts[c] == 0)
@@ -217,44 +223,48 @@ int kmeans(Rng &rng, const std::string &inputFile, const std::string &outputFile
 	std::vector<double> centroids(numClusters * numCols);
 	std::vector<int> clusters(numRows);
 
+	omp_set_num_threads(numThreads);
+
 	for (int r = 0 ; r < repetitions ; r++)
 	{
 		size_t numSteps = 0;
-        
+
+		// Thread unsage action ==> can't parallelize this loop
 		rng.pickRandomIndices(numRows, picked);
- 
+
 		for (int c = 0; c < numClusters; c++)
 			for (size_t d = 0; d < numCols; d++)
 				centroids[c * numCols + d] = allData[picked[c] * numCols + d];
 		clusters.assign(numRows, -1);
-		
+
 		if (centroidDebugFile.is_open())
 			centroidDebugFile.write(centroids, numCols);
 
 		double distSquaredSum = 0;
 
-		bool changed = true;
+		int changed = 1;
 		while (changed) {
-			changed = false;
+			changed = 0;
 			distSquaredSum = 0;
- 
+
+			#pragma omp parallel for schedule(static) reduction(+:distSquaredSum) reduction(||:changed)
 			for (size_t p = 0; p < numRows; p++)
 			{
 				double dist;
 				int newCluster = getClosestCluster(&allData[p * numCols], centroids, numClusters, numCols, dist);
 				distSquaredSum += dist;
- 
+
 				if (newCluster != clusters[p])
 				{
 					clusters[p] = newCluster;
-					changed = true;
+					changed = 1;
 				}
 			}
 			numSteps++;
 
 			if (clustersDebugFile.is_open())
 					clustersDebugFile.write(clusters);
- 
+
 			if (changed) {
 				updateCentroids(allData, clusters, numRows, numCols, numClusters, centroids);
 
@@ -262,7 +272,7 @@ int kmeans(Rng &rng, const std::string &inputFile, const std::string &outputFile
 					centroidDebugFile.write(centroids, numCols);
 			}
 		}
- 
+
 		if (distSquaredSum < bestDistSquaredSum) {
 			bestDistSquaredSum = distSquaredSum;
 			bestClusters = clusters;
