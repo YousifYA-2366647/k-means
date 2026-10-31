@@ -1,0 +1,54 @@
+The following modules were not unloaded:
+  (Use "module --force purge" to unload all):
+
+  1) cluster/mindwell/batch_graniterapids
+# Type,blocks,threads,file,seed,clusters,repetitions,bestdistsquared,timeinseconds
+# Loaded 100000x5 matrix
+# New best on repetition 0: 2.91243e+12 (difference is 1.79769e+308)
+# New best on repetition 6: 2.25117e+12 (difference is 6.61258e+11)
+# Type,blocks,threads,file,seed,clusters,repetitions,bestdistsquared,timeinseconds
+# Type,blocks,threads,file,seed,clusters,repetitions,bestdistsquared,timeinseconds
+# Loaded 100000x5 matrix
+# New best on repetition 0: 2.91243e+12 (difference is 1.79769e+308)
+# New best on repetition 6: 2.25117e+12 (difference is 6.61258e+11)
+# Type,blocks,threads,file,seed,clusters,repetitions,bestdistsquared,timeinseconds
+# Type,blocks,threads,file,seed,clusters,repetitions,bestdistsquared,timeinseconds
+# Loaded 100000x5 matrix
+# New best on repetition 0: 2.91243e+12 (difference is 1.79769e+308)
+# New best on repetition 6: 2.25117e+12 (difference is 6.61258e+11)
+# Type,blocks,threads,file,seed,clusters,repetitions,bestdistsquared,timeinseconds
+# Type,blocks,threads,file,seed,clusters,repetitions,bestdistsquared,timeinseconds
+# Loaded 100000x5 matrix
+# New best on repetition 0: 2.91243e+12 (difference is 1.79769e+308)
+# New best on repetition 6: 2.25117e+12 (difference is 6.61258e+11)
+# Type,blocks,threads,file,seed,clusters,repetitions,bestdistsquared,timeinseconds
+# Type,blocks,threads,file,seed,clusters,repetitions,bestdistsquared,timeinseconds
+# Loaded 100000x5 matrix
+# New best on repetition 0: 2.91243e+12 (difference is 1.79769e+308)
+# New best on repetition 6: 2.25117e+12 (difference is 6.61258e+11)
+# Type,blocks,threads,file,seed,clusters,repetitions,bestdistsquared,timeinseconds
+# Type,blocks,threads,file,seed,clusters,repetitions,bestdistsquared,timeinseconds
+# Loaded 100000x5 matrix
+# New best on repetition 0: 2.91243e+12 (difference is 1.79769e+308)
+# New best on repetition 6: 2.25117e+12 (difference is 6.61258e+11)
+# Type,blocks,threads,file,seed,clusters,repetitions,bestdistsquared,timeinseconds
+# Type,blocks,threads,file,seed,clusters,repetitions,bestdistsquared,timeinseconds
+# Loaded 100000x5 matrix
+# New best on repetition 0: 2.91243e+12 (difference is 1.79769e+308)
+# New best on repetition 6: 2.25117e+12 (difference is 6.61258e+11)
+# Type,blocks,threads,file,seed,clusters,repetitions,bestdistsquared,timeinseconds
+# Type,blocks,threads,file,seed,clusters,repetitions,bestdistsquared,timeinseconds
+# Loaded 100000x5 matrix
+# New best on repetition 0: 2.91243e+12 (difference is 1.79769e+308)
+# New best on repetition 6: 2.25117e+12 (difference is 6.61258e+11)
+# Type,blocks,threads,file,seed,clusters,repetitions,bestdistsquared,timeinseconds
+# Type,blocks,threads,file,seed,clusters,repetitions,bestdistsquared,timeinseconds
+# Loaded 100000x5 matrix
+# New best on repetition 0: 2.91243e+12 (difference is 1.79769e+308)
+# New best on repetition 6: 2.25117e+12 (difference is 6.61258e+11)
+# Type,blocks,threads,file,seed,clusters,repetitions,bestdistsquared,timeinseconds
+# Type,blocks,threads,file,seed,clusters,repetitions,bestdistsquared,timeinseconds
+# Loaded 100000x5 matrix
+# New best on repetition 0: 2.91243e+12 (difference is 1.79769e+308)
+# New best on repetition 6: 2.25117e+12 (difference is 6.61258e+11)
+# Type,blocks,threads,file,seed,clusters,repetitions,bestdistsquared,timeinseconds
