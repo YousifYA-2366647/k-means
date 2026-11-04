@@ -184,7 +184,7 @@ void updateCentroidsPerCluster(const std::vector<double> &allData, const std::ve
                 centroids[c * dim + d] = s[d] / count;
     }
 }
-//k >10
+//k >=10
 void updateCentroidsReduction(const std::vector<double> &allData, const std::vector<int> &clusters,
                               size_t numRows, size_t dim, int numClusters,
                               std::vector<double> &centroids)
@@ -254,7 +254,7 @@ int kmeans(Rng &rng, const std::string &inputFile, const std::string &outputFile
 
 	size_t sumStride = numCols;
 	std::vector<double> sums(numClusters * sumStride);
-	const bool useReduction = (numClusters > 10);
+	const bool useReduction = (numClusters > 9);
 
 	omp_set_num_threads(numThreads);
 	std::vector<double> dists(numRows);
