@@ -1,0 +1,44 @@
+------------------------------------------------------------------------------
+m11c05n2
+g++ (GCC) 14.3.0
+RUN 1
+openmp,1,1,../datasets/100000x5.csv,2364763,10,20,2.25117e+12,1.36176
+sequential_icc,1,1,../datasets/100000x5.csv,2364763,10,20,2.25117e+12,2.98801
+RUN 2
+openmp,1,1,../datasets/100000x5.csv,2364763,10,20,2.25117e+12,1.35948
+sequential_icc,1,1,../datasets/100000x5.csv,2364763,10,20,2.25117e+12,2.99542
+RUN 3
+openmp,1,1,../datasets/100000x5.csv,2364763,10,20,2.25117e+12,1.35954
+sequential_icc,1,1,../datasets/100000x5.csv,2364763,10,20,2.25117e+12,2.99971
+RUN 4
+openmp,1,1,../datasets/100000x5.csv,2364763,10,20,2.25117e+12,1.35801
+sequential_icc,1,1,../datasets/100000x5.csv,2364763,10,20,2.25117e+12,2.99935
+RUN 5
+openmp,1,1,../datasets/100000x5.csv,2364763,10,20,2.25117e+12,1.36005
+sequential_icc,1,1,../datasets/100000x5.csv,2364763,10,20,2.25117e+12,2.99488
+RUN 6
+openmp,1,1,../datasets/100000x5.csv,2364763,10,20,2.25117e+12,1.3606
+sequential_icc,1,1,../datasets/100000x5.csv,2364763,10,20,2.25117e+12,3.00379
+RUN 7
+openmp,1,1,../datasets/100000x5.csv,2364763,10,20,2.25117e+12,1.35873
+sequential_icc,1,1,../datasets/100000x5.csv,2364763,10,20,2.25117e+12,2.98246
+RUN 8
+openmp,1,1,../datasets/100000x5.csv,2364763,10,20,2.25117e+12,1.36259
+sequential_icc,1,1,../datasets/100000x5.csv,2364763,10,20,2.25117e+12,3.02244
+RUN 9
+openmp,1,1,../datasets/100000x5.csv,2364763,10,20,2.25117e+12,1.3582
+sequential_icc,1,1,../datasets/100000x5.csv,2364763,10,20,2.25117e+12,3.00588
+RUN 10
+openmp,1,1,../datasets/100000x5.csv,2364763,10,20,2.25117e+12,1.36189
+sequential_icc,1,1,../datasets/100000x5.csv,2364763,10,20,2.25117e+12,2.99418
+juiste output
+------------------------------------------------------------------------------
+JOBSTAT:ELAPSED_SECONDS=46
+JOBSTAT:SLURM_CLUSTER_NAME=mindwell
+JOBSTAT:SLURM_NODELIST=m11c05n2
+JOBSTAT:SLURM_NTASKS=1
+JOBSTAT:SLURM_GPUS_PER_NODE=
+JOBSTAT:SLURM_JOB_CPUS_PER_NODE=1
+JOBSTAT:SLURM_JOB_NUM_NODES=1
+JOBSTAT:SLURM_JOB_PARTITION=batch_graniterapids
+JOBSTAT:ESTIMATED_CREDITS=1

@@ -1,0 +1,44 @@
+------------------------------------------------------------------------------
+m11c05n2
+g++ (GCC) 14.3.0
+RUN 1
+openmp,1,32,../datasets/100000x5.csv,2364763,10,20,2.25117e+12,0.108974
+sequential_icc,1,1,../datasets/100000x5.csv,2364763,10,20,2.25117e+12,2.98197
+RUN 2
+openmp,1,32,../datasets/100000x5.csv,2364763,10,20,2.25117e+12,0.180295
+sequential_icc,1,1,../datasets/100000x5.csv,2364763,10,20,2.25117e+12,3.00093
+RUN 3
+openmp,1,32,../datasets/100000x5.csv,2364763,10,20,2.25117e+12,0.32443
+sequential_icc,1,1,../datasets/100000x5.csv,2364763,10,20,2.25117e+12,2.9834
+RUN 4
+openmp,1,32,../datasets/100000x5.csv,2364763,10,20,2.25117e+12,0.222755
+sequential_icc,1,1,../datasets/100000x5.csv,2364763,10,20,2.25117e+12,3.00182
+RUN 5
+openmp,1,32,../datasets/100000x5.csv,2364763,10,20,2.25117e+12,0.136926
+sequential_icc,1,1,../datasets/100000x5.csv,2364763,10,20,2.25117e+12,3.0002
+RUN 6
+openmp,1,32,../datasets/100000x5.csv,2364763,10,20,2.25117e+12,0.240767
+sequential_icc,1,1,../datasets/100000x5.csv,2364763,10,20,2.25117e+12,2.98503
+RUN 7
+openmp,1,32,../datasets/100000x5.csv,2364763,10,20,2.25117e+12,0.100799
+sequential_icc,1,1,../datasets/100000x5.csv,2364763,10,20,2.25117e+12,3.00442
+RUN 8
+openmp,1,32,../datasets/100000x5.csv,2364763,10,20,2.25117e+12,0.160018
+sequential_icc,1,1,../datasets/100000x5.csv,2364763,10,20,2.25117e+12,2.99251
+RUN 9
+openmp,1,32,../datasets/100000x5.csv,2364763,10,20,2.25117e+12,0.0873768
+sequential_icc,1,1,../datasets/100000x5.csv,2364763,10,20,2.25117e+12,3.00336
+RUN 10
+openmp,1,32,../datasets/100000x5.csv,2364763,10,20,2.25117e+12,0.177065
+sequential_icc,1,1,../datasets/100000x5.csv,2364763,10,20,2.25117e+12,3.00223
+juiste output
+------------------------------------------------------------------------------
+JOBSTAT:ELAPSED_SECONDS=35
+JOBSTAT:SLURM_CLUSTER_NAME=mindwell
+JOBSTAT:SLURM_NODELIST=m11c05n2
+JOBSTAT:SLURM_NTASKS=32
+JOBSTAT:SLURM_GPUS_PER_NODE=
+JOBSTAT:SLURM_JOB_CPUS_PER_NODE=32
+JOBSTAT:SLURM_JOB_NUM_NODES=1
+JOBSTAT:SLURM_JOB_PARTITION=batch_graniterapids
+JOBSTAT:ESTIMATED_CREDITS=48
