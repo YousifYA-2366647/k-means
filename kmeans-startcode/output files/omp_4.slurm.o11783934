@@ -1,0 +1,44 @@
+------------------------------------------------------------------------------
+m11c05n2
+g++ (GCC) 14.3.0
+RUN 1
+openmp,1,4,../datasets/100000x5.csv,2364763,10,20,2.25117e+12,0.354753
+sequential_icc,1,1,../datasets/100000x5.csv,2364763,10,20,2.25117e+12,2.9937
+RUN 2
+openmp,1,4,../datasets/100000x5.csv,2364763,10,20,2.25117e+12,0.354558
+sequential_icc,1,1,../datasets/100000x5.csv,2364763,10,20,2.25117e+12,2.99899
+RUN 3
+openmp,1,4,../datasets/100000x5.csv,2364763,10,20,2.25117e+12,0.351309
+sequential_icc,1,1,../datasets/100000x5.csv,2364763,10,20,2.25117e+12,3.00608
+RUN 4
+openmp,1,4,../datasets/100000x5.csv,2364763,10,20,2.25117e+12,0.353796
+sequential_icc,1,1,../datasets/100000x5.csv,2364763,10,20,2.25117e+12,3.00509
+RUN 5
+openmp,1,4,../datasets/100000x5.csv,2364763,10,20,2.25117e+12,0.353003
+sequential_icc,1,1,../datasets/100000x5.csv,2364763,10,20,2.25117e+12,3.01439
+RUN 6
+openmp,1,4,../datasets/100000x5.csv,2364763,10,20,2.25117e+12,0.353137
+sequential_icc,1,1,../datasets/100000x5.csv,2364763,10,20,2.25117e+12,3.01512
+RUN 7
+openmp,1,4,../datasets/100000x5.csv,2364763,10,20,2.25117e+12,0.352482
+sequential_icc,1,1,../datasets/100000x5.csv,2364763,10,20,2.25117e+12,2.9941
+RUN 8
+openmp,1,4,../datasets/100000x5.csv,2364763,10,20,2.25117e+12,0.353391
+sequential_icc,1,1,../datasets/100000x5.csv,2364763,10,20,2.25117e+12,3.00476
+RUN 9
+openmp,1,4,../datasets/100000x5.csv,2364763,10,20,2.25117e+12,0.354523
+sequential_icc,1,1,../datasets/100000x5.csv,2364763,10,20,2.25117e+12,2.98564
+RUN 10
+openmp,1,4,../datasets/100000x5.csv,2364763,10,20,2.25117e+12,0.35304
+sequential_icc,1,1,../datasets/100000x5.csv,2364763,10,20,2.25117e+12,2.99855
+juiste output
+------------------------------------------------------------------------------
+JOBSTAT:ELAPSED_SECONDS=36
+JOBSTAT:SLURM_CLUSTER_NAME=mindwell
+JOBSTAT:SLURM_NODELIST=m11c05n2
+JOBSTAT:SLURM_NTASKS=4
+JOBSTAT:SLURM_GPUS_PER_NODE=
+JOBSTAT:SLURM_JOB_CPUS_PER_NODE=4
+JOBSTAT:SLURM_JOB_NUM_NODES=1
+JOBSTAT:SLURM_JOB_PARTITION=batch_graniterapids
+JOBSTAT:ESTIMATED_CREDITS=6
