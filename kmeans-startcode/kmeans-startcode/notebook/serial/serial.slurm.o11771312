@@ -1,0 +1,24 @@
+------------------------------------------------------------------------------
+m11c05n1
+g++ (GCC) 14.3.0
+RUN 1
+RUN 2
+RUN 3
+RUN 4
+RUN 5
+RUN 6
+RUN 7
+RUN 8
+RUN 9
+RUN 10
+juiste output
+------------------------------------------------------------------------------
+JOBSTAT:ELAPSED_SECONDS=47
+JOBSTAT:SLURM_CLUSTER_NAME=mindwell
+JOBSTAT:SLURM_NODELIST=m11c05n1
+JOBSTAT:SLURM_NTASKS=1
+JOBSTAT:SLURM_GPUS_PER_NODE=
+JOBSTAT:SLURM_JOB_CPUS_PER_NODE=1
+JOBSTAT:SLURM_JOB_NUM_NODES=1
+JOBSTAT:SLURM_JOB_PARTITION=batch_graniterapids
+JOBSTAT:ESTIMATED_CREDITS=2

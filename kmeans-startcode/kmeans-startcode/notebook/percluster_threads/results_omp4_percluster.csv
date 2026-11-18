@@ -1,0 +1,11 @@
+type,blocks,threads,file,seed,clusters,repetitions,bestdist,time,correct
+openmp,1,4,../datasets/100000x5.csv,2364763,10,20,2.25117e+12,0.640029,1
+openmp,1,4,../datasets/100000x5.csv,2364763,10,20,2.25117e+12,0.638658,1
+openmp,1,4,../datasets/100000x5.csv,2364763,10,20,2.25117e+12,0.639228,1
+openmp,1,4,../datasets/100000x5.csv,2364763,10,20,2.25117e+12,0.6404,1
+openmp,1,4,../datasets/100000x5.csv,2364763,10,20,2.25117e+12,0.639477,1
+openmp,1,4,../datasets/100000x5.csv,2364763,10,20,2.25117e+12,0.639953,1
+openmp,1,4,../datasets/100000x5.csv,2364763,10,20,2.25117e+12,0.638521,1
+openmp,1,4,../datasets/100000x5.csv,2364763,10,20,2.25117e+12,0.641699,1
+openmp,1,4,../datasets/100000x5.csv,2364763,10,20,2.25117e+12,0.640306,1
+openmp,1,4,../datasets/100000x5.csv,2364763,10,20,2.25117e+12,0.640097,1
